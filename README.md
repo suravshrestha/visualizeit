@@ -4,6 +4,9 @@
 Year: II<br>
 Part: II
 
+## Demonstration
+https://user-images.githubusercontent.com/24486999/225932362-40ef9b54-6d72-4930-becc-68b510c67ba5.mp4
+
 ## Algorithms implemented
 - Shortest path algorithms (Pathfinding)
   - [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
@@ -19,12 +22,12 @@ Part: II
 ## Usage
 1. Clone the repository
 ```
-git clone https://github.com/Sk47R/Visualize-IT.git
+git clone https://github.com/suravshrestha/VisualizeIT.git
 ```
 
 2. Navigate to the repository :open_file_folder:
 ```
-cd Visualize-IT
+cd VisualizeIT
 ```
 
 3. Install the dependencies
@@ -39,3 +42,8 @@ npm run start
 ```
 
 The application can be viewed at http://localhost:3000/
+
+## Developers
+1. [Sudeep Subedi](https://github.com/nothing-mann) (PUL077BCT083)
+2. [Sujan Kapali](https://github.com/Sk47R) (PUL077BCT086)
+3. [Surav Krishna Shrestha](https://github.com/suravshrestha) (PUL077BCT089)
