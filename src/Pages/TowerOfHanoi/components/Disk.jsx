@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 export default function Disk({ number }) {
   const MIN_WIDTH = 20;
@@ -12,3 +13,7 @@ export default function Disk({ number }) {
     </div>
   );
 }
+
+Disk.propTypes = {
+  number: PropTypes.number.isRequired,
+};

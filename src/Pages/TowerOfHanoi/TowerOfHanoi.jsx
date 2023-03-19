@@ -9,7 +9,7 @@ import slowestTurtle from "../../assets/images/fluent_animal-turtle-24-filled.pn
 import slowRabbit from "../../assets/images/fluent_animal-rabbit-20-filled.png";
 import fastRabbit from "../../assets/images/mdi_rabbit.png";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 const DEFAULT_RING_COUNT = 3;
 const MIN_RING_COUNT = 2;
@@ -43,6 +43,7 @@ function TowerOfHanoi() {
       if (n < 1) {
         return;
       }
+
       if (n === 1) {
         const move = [from, to];
         moves.push(move);

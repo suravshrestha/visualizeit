@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import Ring from "./Disk";
 
 export default function Tower({ disks }) {
@@ -17,3 +19,7 @@ export default function Tower({ disks }) {
     </div>
   );
 }
+
+Tower.propTypes = {
+  disks: PropTypes.array.isRequired,
+};
