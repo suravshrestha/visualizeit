@@ -1,18 +1,16 @@
-import React, { Component } from "react";
+import "./PathFinder.css";
 import Node from "../Node/Node";
 import { dijkstra, getNodesInShortestPathOrder } from "../Algorithms/dijkstra";
-import { useState } from "react";
-import { useEffect } from "react";
-import Astar from "../Algorithms/astar";
+
 import slowTurtle from "../../../assets/images/mdi_tortoise.png";
 import slowestTurtle from "../../../assets/images/fluent_animal-turtle-24-filled.png";
 import slowRabbit from "../../../assets/images/fluent_animal-rabbit-20-filled.png";
 import fastRabbit from "../../../assets/images/mdi_rabbit.png";
 
-import "./PathFinder.css";
-
-import mazeJava from "../Algorithms/mazeJava";
+import Astar from "../Algorithms/astar";
 import mazeRecursive from "../Algorithms/mazeRecursive";
+
+import React, { useState, useEffect } from "react";
 
 const rows = 13;
 const cols = 32;
@@ -23,11 +21,10 @@ const FINISH_NODE_COL = 22;
 const DEFAULT_SPEED = 4;
 
 const PathFinder = () => {
-  const [maze, setMaze] = useState(false);
+  const [, setMaze] = useState(false);
   const [grid, setGrid] = useState([]);
   const [speed, setSpeed] = useState(DEFAULT_SPEED);
   const [mouseIsPressed, setMouseIsPressed] = useState(false);
-  const [gridClear, setGridClear] = useState(false);
   const [clearBoard, setClearBoard] = useState(false);
 
   const getInitialGrid = () => {
@@ -37,8 +34,10 @@ const PathFinder = () => {
       for (let col = 0; col < cols; col++) {
         currentRow.push(createNode(row, col));
       }
+
       grid.push(currentRow);
     }
+
     return grid;
   };
 
@@ -52,8 +51,8 @@ const PathFinder = () => {
 
   const createNode = (row, col) => {
     return {
-      col, //j
-      row, //i
+      col, // j
+      row, // i
       g: 0,
       f: 0,
       h: 0,
@@ -85,14 +84,17 @@ const PathFinder = () => {
           let top = grid[i][j - 1];
           if (top && !top.isMazeVisited) neighbor.push(top);
         }
+
         if (i < rows - 1) {
           let right = grid[i + 1][j];
           if (right && !right.isMazeVisited) neighbor.push(right);
         }
+
         if (j < cols - 1) {
           let bottom = grid[i][j + 1];
           if (bottom && !bottom.isMazeVisited) neighbor.push(bottom);
         }
+
         if (i > 0) {
           let left = grid[i - 1][j];
           if (left && !left.isMazeVisited) neighbor.push(left);
@@ -102,9 +104,9 @@ const PathFinder = () => {
           // picking up random neighbor
           let r = Math.floor(Math.random(0, neighbor.length));
           return neighbor[r];
-        } else {
-          return undefined;
         }
+
+        return undefined;
       },
     };
   };
@@ -150,6 +152,7 @@ const PathFinder = () => {
         }, i * speed * 5);
         return;
       }
+
       setTimeout(() => {
         const node = visitedNodesInOrder[i];
         document.getElementById(
@@ -169,6 +172,7 @@ const PathFinder = () => {
       }, i * speed * 5);
     }
   };
+
   const visualizePath = (visitedNodes, path) => {
     for (let i = 0; i <= visitedNodes.length; i++) {
       if (i === visitedNodes.length) {
@@ -197,7 +201,7 @@ const PathFinder = () => {
     }
   };
 
-  const createMaze = (e) => {
+  const createMaze = () => {
     clearGrid();
     const grid = getInitialGrid();
     let current = grid[0][0];
@@ -209,24 +213,11 @@ const PathFinder = () => {
         }
       }
     }
+
     setGrid(grid);
     const newGrid = mazeRecursive(grid, current, rows, cols);
     setGrid(newGrid);
 
-    setMaze((prev) => !prev);
-  };
-  const createPrimMaze = (e) => {
-    const grid = getInitialGrid();
-    let current = grid[0][0];
-    for (let i = 0; i < rows; i++) {
-      for (let j = 0; j < cols; j++) {
-        grid[i][j].isWall = true;
-      }
-    }
-    setGrid(grid);
-    const newGrid = mazeJava(grid, current, rows, cols);
-
-    setGrid(newGrid);
     setMaze((prev) => !prev);
   };
 
@@ -272,14 +263,16 @@ const PathFinder = () => {
               Visualize A*
             </button>
           </div>
+
           <div className="pathFinder_top_right_item margin_right_2">
             <button
               className="pathFinder_top_right_item_button fill_button"
               onClick={() => visualizeDijkstra()}
             >
-              Visualize Dijkstra's
+              Visualize Dijkstra&apos;s Algorithm
             </button>
           </div>
+
           <div className="pathFinder_top_right_item margin_right_2">
             <button
               className="pathFinder_top_right_item_button fill_button"
@@ -288,6 +281,7 @@ const PathFinder = () => {
               Create Maze
             </button>
           </div>
+
           <div className="pathFinder_top_right_item">
             <button
               className="pathFinder_top_right_item_button"
@@ -298,10 +292,7 @@ const PathFinder = () => {
           </div>
         </div>
       </div>
-      {/* <button onClick={() => visualizeDijkstra()}>
-        Visualize Dijkstra's Algorithm
-      </button>
-      <button onClick={() => createMaze()}>Create Maze</button> */}
+
       <div className="pathFinder-grid">
         {grid.map((row, rowIdx) => {
           return (
@@ -352,6 +343,7 @@ const PathFinder = () => {
             }}
           />
         </div>
+
         <div className="pathFinder_bottom_item">
           <img
             className={`pathFinder_bottom_item_speedIcon ${
@@ -364,6 +356,7 @@ const PathFinder = () => {
             }}
           />
         </div>
+
         <div className="pathFinder_bottom_item">
           <img
             className={`pathFinder_bottom_item_speedIcon ${
@@ -376,6 +369,7 @@ const PathFinder = () => {
             alt=""
           />
         </div>
+
         <div className="pathFinder_bottom_item">
           <img
             className={`pathFinder_bottom_item_speedIcon ${

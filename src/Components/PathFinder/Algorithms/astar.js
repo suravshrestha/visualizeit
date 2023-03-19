@@ -5,7 +5,6 @@ function Astar(grid, startNode, endNode) {
 
   let visitedNodes = [];
   openSet.push(startNode);
-  console.log(openSet);
 
   while (openSet.length > 0) {
     let winner = 0;
@@ -24,8 +23,10 @@ function Astar(grid, startNode, endNode) {
         path.push(temp.previousNode);
         temp = temp.previousNode;
       }
+
       return { path, visitedNodes };
     }
+
     // Now as we have visited a node we remove it from the openSet array and push that node to the closeSet array
     openSet = openSet.filter((element) => element !== current);
     closedSet.push(current);
@@ -37,16 +38,16 @@ function Astar(grid, startNode, endNode) {
       if (!closedSet.includes(neighbor) && !neighbor.isWall) {
         let tempG = current.g + 1;
         let newPath = false;
-        if (openSet.includes(neighbor)) {
-          if (tempG < neighbor.g) {
-            neighbor.g = tempG;
-            newPath = true;
-          }
+
+        if (openSet.includes(neighbor) && tempG < neighbor.g) {
+          neighbor.g = tempG;
+          newPath = true;
         } else {
           neighbor.g = tempG;
           newPath = true;
           openSet.push(neighbor);
         }
+
         if (newPath) {
           neighbor.h = heuristic(neighbor, endNode);
 
@@ -56,8 +57,6 @@ function Astar(grid, startNode, endNode) {
       }
     }
   }
-  console.log(path);
-  console.log(visitedNodes);
 
   return { path, visitedNodes, error: "No Path Found!" };
 }

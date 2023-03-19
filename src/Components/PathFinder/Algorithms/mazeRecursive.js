@@ -1,10 +1,12 @@
 function mazeRecursive(grid, current, rows, cols) {
-  console.log("clled");
   let stack = [];
+
   current.isMazeVisited = true;
   current.isCurrent = true;
+
   let unvisitedNodes = getAllNodes(grid, rows, cols);
   let neighborList = [];
+
   // loop
   while (unvisitedNodes.length > 0) {
     let frontierCells = frontierCellFunc(current, grid); // gives the neighbors
@@ -28,7 +30,7 @@ function mazeRecursive(grid, current, rows, cols) {
       neighborList.push(current);
     }
   }
-  console.log(neighborList);
+
   return grid;
 }
 
@@ -37,8 +39,6 @@ function removeWalls(current, neighbor, grid) {
 
   if (x === 2) {
     if (isValidPosition(current.row - 1, current.col, grid)) {
-      console.log(current);
-      console.log(neighbor);
       grid[current.row - 1][current.col].isWall = false;
     }
   } else if (x == -2) {
@@ -59,7 +59,7 @@ function removeWalls(current, neighbor, grid) {
   }
 }
 
-function getAllNodes(grid, rows, cols) {
+function getAllNodes(grid) {
   const nodes = [];
   for (const row of grid) {
     for (const node of row) {
@@ -84,6 +84,7 @@ function cellAround(cell, isWall, grid) {
     [2, 0],
     [-2, 0],
   ];
+
   for (let i = 0; i < DIRECTIONS.length; i++) {
     let newRow = cell.row + DIRECTIONS[i][0];
     let newCol = cell.col + DIRECTIONS[i][1];
