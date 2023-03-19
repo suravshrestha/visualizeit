@@ -22,26 +22,26 @@ https://user-images.githubusercontent.com/24486999/225932362-40ef9b54-6d72-4930-
 ## Usage
 1. Clone the repository
 ```
-git clone https://github.com/suravshrestha/VisualizeIT.git
+git clone https://github.com/suravshrestha/visualizeit.git
 ```
 
 2. Navigate to the repository :open_file_folder:
 ```
-cd VisualizeIT
+cd visualizeit
 ```
 
 3. Install the dependencies
 ```
 npm install
 ```
-Have patience, this might take a while.
+This might take a while to complete.
 
 4. Start the development server
 ```
-npm run start
+npm run dev
 ```
 
-The application can be viewed at http://localhost:3000/
+You can view the application at http://localhost:5174.
 
 ## Developers
 1. [Sudeep Subedi](https://github.com/nothing-mann) (PUL077BCT083)
