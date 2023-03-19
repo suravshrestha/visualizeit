@@ -8,6 +8,7 @@
   width: 100%;
   flex-direction: column;
 }
+
 .home_header {
   color: var(--grey);
   font-size: 3.5rem;
@@ -15,6 +16,7 @@
   margin-top: 2rem;
   margin-bottom: 0;
 }
+
 .home_slider {
   width: 42%;
 
@@ -22,12 +24,12 @@
   justify-content: center;
   align-items: center;
 }
+
 .slide_image {
   /* height: 600px; */
   width: 100%;
 }
-.slide_image:hover {
-}
+
 .pro_logo {
   width: 280px;
   margin-top: 3rem;

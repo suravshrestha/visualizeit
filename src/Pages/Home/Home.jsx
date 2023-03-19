@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Home.css";
-import bg from "../../assets/images/brain_bg.png";
+
 import sudoku_home from "../../assets/images/sudoku_home.png";
 import chess_home from "../../assets/images/chess_home.png";
 import pathFinder_home from "../../assets/images/pathFinder_home.png";
 import toh_home from "../../assets/images/toh_home.png";
-import { Link } from "react-router-dom";
 import logo from "../../assets/images/Visualizeit.png";
 
 const Home = () => {
@@ -29,6 +29,7 @@ const Home = () => {
               />
             </Link>
           </Carousel.Item>
+
           <Carousel.Item>
             <Link to="/nqueens">
               <img
@@ -38,6 +39,7 @@ const Home = () => {
               />
             </Link>
           </Carousel.Item>
+
           <Carousel.Item>
             <Link to="/sudoku-solver">
               <img
@@ -47,6 +49,7 @@ const Home = () => {
               />
             </Link>
           </Carousel.Item>
+
           <Carousel.Item>
             <Link to="/tower-of-hanoi">
               <img
