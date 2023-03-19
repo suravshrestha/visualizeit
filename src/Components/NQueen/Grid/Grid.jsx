@@ -1,6 +1,8 @@
-import React from "react";
 import Node from "../Node/Node";
 import "./Grid.css";
+
+import React from "react";
+import PropTypes from "prop-types";
 
 const Grid = ({ grid, gridSize }) => {
   console.log("rendered");
@@ -28,6 +30,11 @@ const Grid = ({ grid, gridSize }) => {
       })}
     </div>
   );
+};
+
+Grid.propTypes = {
+  grid: PropTypes.array.isRequired,
+  gridSize: PropTypes.number.isRequired,
 };
 
 export default Grid;
