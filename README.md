@@ -41,8 +41,6 @@ This might take a while to complete.
 npm run dev
 ```
 
-You can view the application at http://localhost:5174.
-
 ## Developers
 1. [Sudeep Subedi](https://github.com/nothing-mann) (PUL077BCT083)
 2. [Sujan Kapali](https://github.com/Sk47R) (PUL077BCT086)
