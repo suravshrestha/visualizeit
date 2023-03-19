@@ -1,8 +1,9 @@
+import React from "react";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 
 import Home from "../Pages/Home/Home";
 import NQueen from "../Pages/NQueen/NQueen";
-import PathFinderPage from "../Pages/PathFinder/PathFinderPage/PathFinderPage";
+import PathFinderPage from "../Pages/PathFinder/PathFinderPage";
 import SudokuSolver from "../Pages/SudokuSolver/SudokuSolver";
 import TowerOfHanoi from "../Pages/TowerOfHanoi/TowerOfHanoi";
 

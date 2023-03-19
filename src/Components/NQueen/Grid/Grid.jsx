@@ -5,7 +5,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Grid = ({ grid, gridSize }) => {
-  console.log("rendered");
   return (
     <div className="grid">
       {grid.map((row, rowIdx) => {

@@ -6,19 +6,19 @@ import { Icon } from "@iconify/react";
 import HomeIcon from "@mui/icons-material/Home";
 import RouteIcon from "@mui/icons-material/Route";
 
-import { Link, useLocation } from "react-router-dom";
 import React from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const SideBar = ({ active }) => {
-  const location = useLocation();
-
   return (
     <div className="sidebar">
       <div className="sidebar_items margin_bottom_4">
         <Link to="/">
-          <HomeIcon className={`sideBar_images $`} />
+          <HomeIcon className="sideBar_images" />
         </Link>
       </div>
+
       <div className="sidebar_items margin_bottom_4">
         <Link to="/path-finder">
           <RouteIcon
@@ -64,6 +64,10 @@ const SideBar = ({ active }) => {
       </div>
     </div>
   );
+};
+
+SideBar.propTypes = {
+  active: PropTypes.string,
 };
 
 export default SideBar;
